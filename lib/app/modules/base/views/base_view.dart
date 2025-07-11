@@ -9,23 +9,25 @@ class BaseView extends GetView<BaseController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() =>
-          controller.widgetOptions.elementAt(controller.selectedIndex.value)),
-      bottomNavigationBar: Obx(() => BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
-              ),
-            ],
-            currentIndex: controller.selectedIndex.value,
-            onTap: controller.onItemTapped,
-          )),
+      body: Obx(
+        () =>
+            controller.widgetOptions.elementAt(controller.selectedIndex.value),
+      ),
+      bottomNavigationBar: Obx(
+        () => BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.message),
+              label: 'Messages',
+            ),
+          ],
+          currentIndex: controller.selectedIndex.value,
+          onTap: controller.onItemTapped,
+        ),
+      ),
     );
   }
 }
